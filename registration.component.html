@@ -1,0 +1,81 @@
+<br><br><br><br><br><br>
+<form #StudentForm ="ngForm" (ngSubmit)="onSubmit(StudentForm.value)">
+  <div class="col-sm-3"></div>
+<div class="col-sm-6">
+
+  <div class="form-group">
+    <label>Course Code :</label>
+    <input type="text" #codeRef="ngModel" required pattern="^[0-9A-Za-z]+$" class="form-control" name="ccode"  ngModel>
+    <div *ngIf="codeRef.errors && (codeRef.dirty || codeRef.touched)" class="alert alert-danger">
+      <div [hidden]="!codeRef.errors.required">
+        please enter a Course Code
+      </div>
+      <div [hidden]="!codeRef.errors.pattern">
+        Enter alphabets and numeric characters only
+      </div>
+    </div> 
+  </div>
+
+  <div class="form-group">
+    <label>Course Name :</label>
+    <input type="text" #nameRef="ngModel" required class="form-control" name="name" pattern="^[0-9A-Za-z]+$" ngModel>
+    <div *ngIf="nameRef.errors && (nameRef.dirty || nameRef.touched)" class="alert alert-danger">
+      <div [hidden]="!nameRef.errors.required">
+        please enter Course name
+      </div>
+      <div [hidden]="!nameRef.errors.pattern">
+        Enter alphabets and numeric characters only
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Course Description :</label>
+    <input type="text" #descRef="ngModel" required class="form-control" name="name" pattern="^[0-9A-Za-z]+$" ngModel>
+    <div *ngIf="descRef.errors && (descRef.dirty || descRef.touched)" class="alert alert-danger">
+      <div [hidden]="!descRef.errors.required">
+        please enter Course Description
+      </div>
+      <div [hidden]="!descRef.errors.pattern">
+        Enter alphabets and numeric characters only
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Participant Strength :</label>
+    <input type="text" #pastRef="ngModel" required class="form-control" name="name" pattern="^[0-9]+$" ngModel>
+    <div *ngIf="pastRef.errors && (pastRef.dirty || pastRef.touched)" class="alert alert-danger">
+      <div [hidden]="!pastRef.errors.required">
+        please enter Participant Strength
+      </div>
+      <div [hidden]="!pastRef.errors.pattern">
+        Enter numeric characters only
+      </div>
+    </div>
+  </div>
+
+ <div class="form-group">
+<label>Course Duration :</label>
+<select name="duration" class="form-control" required>
+<option>--select--</option>
+<option>D1</option>
+<option>D2</option>
+<option>D3</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Course Type :</label> <br>
+<input type="radio" name="type" value="classroom" required> Classroom
+&nbsp;&nbsp;&nbsp; 
+<input type="radio" name="type" value="Elearning" required> E-learning
+</div>
+
+  <div class="form-group">
+    <input type="submit" class="btn btn-primary" value="Add Course">
+    &nbsp;&nbsp;&nbsp;
+    <input type="reset" class="btn btn-primary" value="Reset">
+  </div>
+</div>
+</form>
